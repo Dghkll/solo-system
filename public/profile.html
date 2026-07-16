@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Profile</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>👤 Player Profile</h1>
+
+<p>Name: PRAVESH</p>
+<p>Rank: <span id="rank">E</span></p>
+<p>Level: <span id="level">1</span></p>
+<p>XP: <span id="xp">0</span></p>
+
+<button onclick="location.href='dashboard.html'">
+⬅ Back
+</button>
+
+<script>
+let xp = Number(localStorage.getItem("xp")) || 0;
+let level = Math.floor(xp / 100) + 1;
+
+let rank = "E";
+if(level >= 2) rank = "D";
+if(level >= 3) rank = "C";
+if(level >= 4) rank = "B";
+if(level >= 5) rank = "A";
+if(level >= 6) rank = "S";
+if(level >= 7) rank = "SS";
+
+document.getElementById("xp").textContent = xp;
+document.getElementById("level").textContent = level;
+document.getElementById("rank").textContent = rank;
+</script>
+
+</body>
+</html>
+

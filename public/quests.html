@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Quests</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>📜 DAILY QUESTS</h1>
+
+<h2>XP : <span id="xp">0</span></h2>
+<h2>Gold : <span id="gold">0</span></h2>
+
+<div class="quest"><label><input type="checkbox" id="q1"> ⏰ Wake Up 4:00 AM (+100 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q2"> 💪 50 Push-ups (+50 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q3"> 🦵 100 Squats (+100 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q4"> 🏃 Run 5 KM (+200 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q5"> 📖 Read 20 Pages (+50 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q6"> 🎮 Free Fire Practice 2 Hours (+150 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q7"> 🎯 Aim Training (+100 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q8"> 💣 Nade Practice (+100 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q9"> 🧠 Meditation 10 Minutes (+50 XP)</label></div>
+
+<div class="quest"><label><input type="checkbox" id="q10"> 😴 Sleep Before 10 PM (+100 XP)</label></div>
+
+<br>
+
+<button onclick="location.href='dashboard.html'">⬅ Dashboard</button>
+
+<script>
+
+let xp = Number(localStorage.getItem("xp")) || 0;
+let gold = Number(localStorage.getItem("gold")) || 0;
+
+document.getElementById("xp").textContent = xp;
+document.getElementById("gold").textContent = gold;
+
+function addQuest(id,reward,goldReward){
+
+const q=document.getElementById(id);
+
+q.addEventListener("change",()=>{
+
+if(q.checked){
+
+xp+=reward;
+gold+=goldReward;
+
+localStorage.setItem("xp",xp);
+localStorage.setItem("gold",gold);
+
+document.getElementById("xp").textContent=xp;
+document.getElementById("gold").textContent=gold;
+
+}
+
+});
+
+}
+
+addQuest("q1",100,20);
+addQuest("q2",50,10);
+addQuest("q3",100,15);
+addQuest("q4",200,30);
+addQuest("q5",50,10);
+addQuest("q6",150,25);
+addQuest("q7",100,15);
+addQuest("q8",100,15);
+addQuest("q9",50,10);
+addQuest("q10",100,20);
+
+</script>
+
+</body>
+</html>
+
+
+

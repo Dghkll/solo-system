@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🛒 SYSTEM SHOP</h1>
+
+<h2>🪙 Gold : <span id="gold">0</span></h2>
+
+<div class="quest">
+<h3>🧪 Health Potion</h3>
+<p>Price : 20 Gold</p>
+<button onclick="buy('potion',20)">Buy</button>
+</div>
+
+<div class="quest">
+<h3>⚔️ Iron Sword</h3>
+<p>Price : 100 Gold</p>
+<button onclick="buy('sword',100)">Buy</button>
+</div>
+
+<div class="quest">
+<h3>🛡️ Shield</h3>
+<p>Price : 150 Gold</p>
+<button onclick="buy('shield',150)">Buy</button>
+</div>
+
+<div class="quest">
+<h3>💎 Magic Crystal</h3>
+<p>Price : 250 Gold</p>
+<button onclick="buy('crystal',250)">Buy</button>
+</div>
+
+<br>
+
+<button onclick="location.href='inventory.html'">
+🎒 Inventory
+</button>
+
+<button onclick="location.href='dashboard.html'">
+⬅ Dashboard
+</button>
+
+<script>
+
+let gold = Number(localStorage.getItem("gold")) || 0;
+
+document.getElementById("gold").textContent = gold;
+
+function buy(item, price){
+
+if(gold < price){
+alert("❌ Not enough Gold!");
+return;
+}
+
+gold -= price;
+
+localStorage.setItem("gold", gold);
+
+let count = Number
+

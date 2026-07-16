@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solo System Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>⚔️ SOLO SYSTEM</h1>
+
+<div class="quest">
+
+<h2>👤 PRAVESH</h2>
+
+<p>🏅 Rank : <span id="rank">E</span></p>
+
+<p>⭐ XP : <span id="xp">0</span></p>
+
+<p>🪙 Gold : <span id="gold">0</span></p>
+
+</div>
+
+<button onclick="location.href='quests.html'">
+📜 Daily Quests
+</button>
+
+<button onclick="location.href='status.html'">
+📊 Status
+</button>
+
+<button onclick="location.href='inventory.html'">
+🎒 Inventory
+</button>
+
+<button onclick="location.href='shop.html'">
+🛒 Shop
+</button>
+
+<script>
+
+let xp = Number(localStorage.getItem("xp")) || 0;
+let gold = Number(localStorage.getItem("gold")) || 0;
+
+document.getElementById("xp").textContent = xp;
+document.getElementById("gold").textContent = gold;
+
+let rank = "E";
+
+if(xp >= 1000) rank = "D";
+if(xp >= 3000) rank = "C";
+if(xp >= 6000) rank = "B";
+if(xp >= 10000) rank = "A";
+if(xp >= 20000) rank = "S";
+
+document.getElementById("rank").textContent = rank;
+
+</script>
+
+</body>
+</html>
+
